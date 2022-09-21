@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DisplayMusic from './Components/DisplayMusic/DisplayMusic';
+import AddMusic from './Components/AddMusic/AddMusic';
 import axios from 'axios';
 
 function App() {
@@ -17,9 +18,17 @@ function App() {
     setMusic(response.data);
   }
 
+  async function addNewMusic(newSong){
+    let response = await axios.post('http://127.0.0.1:8000/api/music/', newSong)
+    if(response.status === 201){
+      await getAllMusic();
+    }
+  }
+
   return (
     <div>
       <DisplayMusic parentEntries={entries} />
+      <AddMusic addNewMusic={addNewMusic}/>
     </div>
   );
 }
