@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import DisplayMusic from './Components/DisplayMusic/DisplayMusic';
 import AddMusic from './Components/AddMusic/AddMusic';
 import axios from 'axios';
+import './App.css'
 
 function App() {
-
-
-  const [entries, setMusic] = useState([])
+  const [entries, setMusic] = useState([]);
 
   useEffect(() => {
     getAllMusic();
@@ -14,7 +13,6 @@ function App() {
 
   async function getAllMusic(){
     let response = await axios.get('http://127.0.0.1:8000/api/music/');
-    console.log(response.data)
     setMusic(response.data);
   }
 
@@ -25,10 +23,18 @@ function App() {
     }
   }
 
+  
+
   return (
     <div>
-      <DisplayMusic parentEntries={entries} />
-      <AddMusic addNewMusic={addNewMusic}/>
+      <div className='border-box'>
+        <h3>Add Music</h3>
+        <AddMusic addNewMusic={addNewMusic}/>
+      </div>
+      <div className='border-box'>
+        <DisplayMusic parentEntries={entries} />
+      </div>
+
     </div>
   );
 }

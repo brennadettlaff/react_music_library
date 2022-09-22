@@ -1,8 +1,9 @@
 import React from 'react';
+import './DisplayMusic'
 
 const DisplayMusic = (props) => {
     return ( 
-        <table>
+        <table align='center' className='table'>
             <thead>
             <tr>
                 <th>Title</th>
@@ -15,13 +16,13 @@ const DisplayMusic = (props) => {
             <tbody>
             {props.parentEntries.map((entry) => {
                 return (
-                <tr>
-                    <td>{entry.title}</td>
-                    <td>{entry.artist}</td>
-                    <td>{entry.album}</td>
-                    <td>{entry.release_date}</td>
-                    <td>{entry.genre}</td>
-                </tr>
+                    <tr>
+                        <td>{entry.title}</td>
+                        <td>{entry.artist}</td>
+                        <td>{entry.album}</td>
+                        <td>{entry.release_date}</td>
+                        <td>{entry.genre}</td>
+                    </tr>
                 )
             })}
             </tbody>
