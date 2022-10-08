@@ -5,7 +5,7 @@ import axios from 'axios';
 import './App.css'
 
 function App() {
-  const [entries, setMusic] = useState([]);
+  const [music, setMusic] = useState([]);
 
   useEffect(() => {
     getAllMusic();
@@ -32,7 +32,7 @@ function App() {
         <AddMusic addNewMusic={addNewMusic}/>
       </div>
       <div className='border-box'>
-        <DisplayMusic parentEntries={entries} />
+        <DisplayMusic parentEntries={music} />
       </div>
 
     </div>
