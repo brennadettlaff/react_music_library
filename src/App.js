@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DisplayMusic from './Components/DisplayMusic/DisplayMusic';
 import AddMusic from './Components/AddMusic/AddMusic';
+import SearchMusic from './Components/SearchMusic/SearchMusic';
 import axios from 'axios';
 import './App.css'
 
@@ -23,10 +24,22 @@ function App() {
     }
   }
 
-  
+  function filterSongs(search){
+    console.log(search)
+    let filteredSongs = music.filter((song)=>{
+      if(song.title === search){
+        return true
+      }
+    })
+    setMusic(filteredSongs)
+  }
 
   return (
     <div>
+      <div className='border-box'>
+        <h3>Search Music</h3>
+        <SearchMusic filterSongs={filterSongs}/>
+      </div>
       <div className='border-box'>
         <h3>Add Music</h3>
         <AddMusic addNewMusic={addNewMusic}/>
