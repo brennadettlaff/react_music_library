@@ -25,9 +25,8 @@ function App() {
   }
 
   function filterSongs(search){
-    console.log(search)
     let filteredSongs = music.filter((song)=>{
-      if(song.title === search){
+      if(song.title.search || song.artist === search || song.album === search || song.genre === search){
         return true
       }
     })

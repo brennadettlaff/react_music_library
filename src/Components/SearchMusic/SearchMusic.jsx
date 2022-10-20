@@ -11,7 +11,6 @@ const SearchMusic = (props) => {
     return ( 
         <div>
             <form onSubmit={handleSubmit}>
-                <label>Title</label>
                 <input onChange={(event)=>setSearchInput(event.target.value)}/>
                 <button type='submit'>Search</button>
             </form>
